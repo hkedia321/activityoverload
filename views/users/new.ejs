@@ -1,0 +1,19 @@
+<form action="/users/create" method="POST" class="form-signin" id="sign-up-form">
+  <h2 class="form-signin-heading">Create an account</h2>
+  <% if(flasherr && flasherr.err){%>
+  <ul class="alert alert-danger">
+    <% Object.keys(flasherr.err).forEach(function(error){%>
+    <li><%= JSON.stringify(flasherr.err[error])%></li>
+    <%})%>
+  </ul>
+  <%}%>
+  <input type="text" class="form-control" placeholder="Name" name="name">
+  <input type="text" class="form-control" placeholder="title" name="title">
+  <input type="text" class="form-control" placeholder="email" name="email">
+  <input type="password" class="form-control" placeholder="password" name="password" id="password">
+  <input type="password" class="form-control" placeholder="Confirm" name="confirmation">
+         <br>
+  <input type="submit" class="btn btn-lg" value="Create Account">
+  <input type="hidden" name="_csrf" value="<%=_csrf%>">
+</form>
+
